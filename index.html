@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link to Device Setup Specification</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        h2 {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+            padding: 10px; 
+            color: #0096D6;
+            text-align: center;
+        }
+        p{
+            font-size: 1.1em;
+            font-family: Arial, sans-serif;
+            margin: 20px 0;
+            padding: 10px;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+            
+        }
+        .tile {
+            width: 200px; /* adjust as needed */
+            height: 200px; /* adjust as needed */
+            margin: 10px; /* adjust as needed */
+            box-sizing: border-box;
+            border-radius: 16px; /* rounded corners */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* shadow */
+            transition: box-shadow 0.3s ease; /* transition effect */
+            background-color: #ffffff; /* white background */
+            display: flex; /* use flexbox for centering */
+            justify-content: center; /* center horizontally */
+            align-items: center; /* center vertically */
+            text-align: center; /* center text */
+            color: #0096D6;
+        }
+        
+        .tile:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* shadow when hovered over */
+        }
+
+        .tile-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(calc(200px + 10px), 1fr)); /* include padding in tile width */
+            gap: 25px;
+        }
+        
+        #search {
+            width: 20%; /* full width */
+            padding: 12px 20px; /* padding for bigger size */
+            margin: 10px auto 20px; /* margin around the input */
+            border: none; /* remove border */
+            border-bottom: 2px solid #0096D6; /* add bottom border */
+            font-size: 16px; /* bigger font size */
+            background-color: #f5f5f5; /* light grey background */
+            display: block;
+            border-radius: 16px;
+        }
+
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('search').addEventListener('input', function(e) {
+                var searchValue = e.target.value.toLowerCase();
+                var tiles = document.querySelectorAll('.tile');
+                console.log(searchValue)
+        
+                tiles.forEach(function(tile) {
+                    var tileText = tile.textContent.toLowerCase();
+                    if (tileText.includes(searchValue)) {
+                        tile.parentElement.style.display = '';
+                    } else {
+                        tile.parentElement.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>CDM services OpenAPI</h2>
+    <input type="text" id="search" placeholder="Search">
+    <div style="background-color: #F5F5F5;" class="tile-container">
+    <a href="src/services/AdaptiveUi/pub/com.hp.cdm.service.adaptiveUi.version.1.specification.html"><div class=tile><p>AdaptiveUi</p></div></a>
+
+</body>
+</html>
